@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages|create</title>
+</head>
+<body>
+    <h2 align="center">Edit message</h2>
+    {% for x in data %}
+    <form method ="POST" action="/edit/{{x.id}}">
+            {% csrf_token %}
+            <table border="1" align="center">
+                <tr>
+                     <td> Enter name:</td>
+                     <td> <input type="text" name="uname" value="{{x.name}}">
+                     </td>
+
+                </tr>
+                <tr>
+                    <td> Enter Email:</td>
+                    <td> <input type="email" name="uemail" value="{{x.email}}">
+                    </td>
+
+               </tr>
+               <tr>
+                <td> Enter contact:</td>
+                <td> <input type="number" name="mobile" value="{{x.mobile}}"> </td>
+
+                 </tr>
+                 <tr>
+                    <td> Message:</td>
+                    <td> <textarea name="msg" id="" cols="30" rows="10" >{{x.msg}}</textarea> </td>
+
+               </tr>
+                 <tr>
+                    <td><a href="/dashboard"><button>Back</button></a></td>
+                    <td colspan="2" align="center"> <input type="submit" value="Update"> </td>
+               </tr>
+                
+            </table>
+
+
+
+
+    </form>
+    {% endfor %}
+</body>
+</html>
+
+
+
